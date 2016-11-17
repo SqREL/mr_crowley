@@ -1,4 +1,4 @@
-# Crawler
+# MrCrawley
 
 **TODO: Add description**
 
@@ -6,19 +6,19 @@
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add `crawler` to your list of dependencies in `mix.exs`:
+  1. Add `mr_crawley` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:crawler, "~> 0.1.0"}]
+      [{:mr_crawley, "~> 0.1.0"}]
     end
     ```
 
-  2. Ensure `crawler` is started before your application:
+  2. Ensure `mr_crawley` is started before your application:
 
     ```elixir
     def application do
-      [applications: [:crawler]]
+      [applications: [:mr_crawley]]
     end
     ```
 

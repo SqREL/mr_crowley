@@ -1,8 +1,8 @@
-defmodule Crawler.Mixfile do
+defmodule MrCrowley.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :crawler,
+    [app: :mr_crowley,
      version: "0.1.0",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
@@ -15,7 +15,7 @@ defmodule Crawler.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [
-      mod: {Crawler, []},
+      mod: {MrCrowley, []},
       applications: [:logger, :httpotion, :exredis]
     ]
   end
