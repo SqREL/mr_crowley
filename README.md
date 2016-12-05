@@ -1,4 +1,4 @@
-# MrCrawley
+# MrCrowley
 
 **TODO: Add description**
 
@@ -10,15 +10,15 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def deps do
-      [{:mr_crawley, "~> 0.1.0"}]
+      [{:mr_crowley, "~> 0.1.0"}]
     end
     ```
 
-  2. Ensure `mr_crawley` is started before your application:
+  2. Ensure `mr_crowley` is started before your application:
 
     ```elixir
     def application do
-      [applications: [:mr_crawley]]
+      [applications: [:mr_crowley]]
     end
     ```
 

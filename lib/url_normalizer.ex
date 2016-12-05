@@ -5,13 +5,10 @@ defmodule MrCrowley.UrlNormalizer do
       |> Map.merge(%{fragment: nil})
       |> full_url_for(site_key)
       |> URI.to_string
-      |> cleanup_processed(site_key)
-    }
+      |> cleanup_processed(site_key)}
   end
 
   @base_urls %{"dk" => "https://lokalebasen.dk"}
-
-  def puts()
 
   def full_url_for(url, site_key) do
     %{authority: base_authority, port: port, host: host, scheme: scheme} = URI.parse(@base_urls[site_key])

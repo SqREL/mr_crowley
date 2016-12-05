@@ -10,13 +10,13 @@ defmodule MrCrowley do
     poolboy_config = [
       {:name, {:local, pool_name()}},
       {:worker_module, MrCrowley.Worker},
-      {:size, 20},
-      {:max_overflow, 1}
+      {:size, 100},
+      {:max_overflow, 100}
     ]
 
     children = [
       :poolboy.child_spec(pool_name(), poolboy_config, []),
-      worker(MrCrowley.RedisRepo, [MrCrowley.RedisRepo.repo_name, "redis://localhost:6379/0"])
+      worker(MrCrowley.RedisRepo, [MrCrowley.RedisRepo.repo_name, Application.fetch_env!(:redis, :url)])
     ]
 
     options = [
@@ -27,11 +27,8 @@ defmodule MrCrowley do
     Supervisor.start_link(children, options)
   end
 
-  def crawl(_, nil) do
-    { :ok, nil }
-  end
-
-  def crawl(site_key, url) do
+  def crawl({_, :nourl}), do: nil
+  def crawl({site_key, url}) do
     :poolboy.transaction(
       pool_name(),
       fn(pid) ->
